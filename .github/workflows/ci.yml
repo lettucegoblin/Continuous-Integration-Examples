@@ -32,6 +32,36 @@ jobs:
         else
           echo "Jest tests failed!"
         fi
+    - name: Run Ava tests
+      id: ava_test
+      run: npm run test:ava -- __tests__/ava/index.test.js
+    - name: Check Ava test results
+      run: |
+        if [ ${{ steps.ava_test.outcome }} == 'success' ]; then
+          echo "Ava tests passed!"
+        else
+          echo "Ava tests failed!"
+        fi
+    - name: Run Jasmine tests
+      id: jasmine_test
+      run: npm run test:jasmine -- __tests__/jasmine/index.test.js
+    - name: Check Jasmine test results
+      run: |
+        if [ ${{ steps.jasmine_test.outcome }} == 'success' ]; then
+          echo "Jasmine tests passed!"
+        else
+          echo "Jasmine tests failed!"
+        fi
+    - name: Run Tape tests
+      id: tape_test
+      run: npm run test:tape -- __tests__/tape/index.test.js
+    - name: Check Tape test results
+      run: |
+        if [ ${{ steps.tape_test.outcome }} == 'success' ]; then
+          echo "Tape tests passed!"
+        else
+          echo "Tape tests failed!"
+        fi
     - name: Run Node.js assert tests
       id: node_test
       run: node __tests__/node/index.test.js
