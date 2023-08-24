@@ -1,0 +1,15 @@
+{
+    "name": "add-two-numbers",
+    "version": "1.0.0",
+    "description": "A simple library that adds two numbers",
+    "main": "index.js",
+    "scripts": {
+      "test": "npm run test:mocha && npm run test:jest",
+      "test:mocha": "mocha",
+      "test:jest": "jest"
+    },
+    "devDependencies": {
+      "mocha": "^9.1.3",
+      "jest": "^27.0.6"
+    }
+  }
