@@ -34,7 +34,7 @@ jobs:
         fi
     - name: Run Node.js assert tests
       id: node_test
-      run: node test.js -- __tests__/node/index.test.js
+      run: node __tests__/node/index.test.js
     - name: Check Node.js assert test results
       run: |
         if [ ${{ steps.node_test.outcome }} == 'success' ]; then
