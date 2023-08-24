@@ -5,3 +5,5 @@ const assert = require('assert');
 assert.equal(add(1, 2), 3);
 assert.equal(add(-1, 1), 0);
 assert.equal(add(0, 0), 0);
+
+console.log('Node.js assert test passed!');
