@@ -14,7 +14,7 @@ jobs:
       run: npm install
     - name: Run Mocha tests
       id: mocha_test
-      run: npm run test:mocha
+      run: npm run test:mocha -- __tests__/mocha/index.test.js
     - name: Check Mocha test results
       run: |
         if [ ${{ steps.mocha_test.outcome }} == 'success' ]; then
@@ -24,7 +24,7 @@ jobs:
         fi
     - name: Run Jest tests
       id: jest_test
-      run: npm run test:jest
+      run: npm run test:jest  -- __tests__/jest/index.test.js
     - name: Check Jest test results
       run: |
         if [ ${{ steps.jest_test.outcome }} == 'success' ]; then
@@ -34,7 +34,7 @@ jobs:
         fi
     - name: Run Node.js assert tests
       id: node_test
-      run: node test.js
+      run: node test.js -- __tests__/node/index.test.js
     - name: Check Node.js assert test results
       run: |
         if [ ${{ steps.node_test.outcome }} == 'success' ]; then
